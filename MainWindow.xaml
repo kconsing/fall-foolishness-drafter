@@ -1,0 +1,154 @@
+﻿<Window x:Class="fall_foolishness_drafter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:fall_foolishness_drafter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525"
+        WindowStyle="SingleBorderWindow"   
+        WindowState="Maximized"
+        ResizeMode="NoResize"
+        >
+
+
+
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="{Binding BackgroundPath}" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+
+        <ListBox x:Name="Roster" Margin="5" Grid.Column="0" Background="Black" Opacity=".75">
+            <ListBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ListBox.Resources>
+        </ListBox>
+
+
+        <DockPanel   Grid.Column="1">
+            <!--<Image  x:Name="PictureBox"
+                    Source="{Binding PicturePath}" 
+                    DockPanel.Dock="Top"
+                    Margin="10"
+                    Height="300"
+                    Stretch="UniformToFill"
+                    >
+
+            </Image>-->
+
+            <Border DockPanel.Dock="Top" Height="300" Margin="5 5 5 0" Opacity=".95">
+                <Border BorderThickness="0.9" BorderBrush="#000"   CornerRadius="5 5 0 0" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding PicturePath}"  Stretch="UniformToFill"></ImageBrush>
+                    </Border.Background>
+
+                    <TextBlock x:Name="PictureText"
+                        Text="BRYAN DEL PRADO" 
+                        Foreground ="White"
+                        FontFamily="NCAA Illinois Fighting Illini"
+                        FontSize="48"
+                        Padding="10"
+                        />
+                </Border>
+            </Border>
+
+            <TextBox DockPanel.Dock="Top"
+                     Margin="5 5 5 0"></TextBox>
+
+            <ListBox x:Name="DraftPool"
+                     Grid.Column="1"
+                     Margin="5"
+                     FontFamily="NCAA Illinois Fighting Illini"
+                     FontSize="28"
+                     BorderBrush="#FFABADB3"
+                     Background="Black" Opacity="0.75"
+                     DockPanel.Dock="Bottom"
+                     
+                     >
+                <ListBox.Resources>
+                    <SolidColorBrush x:Key="ItemContainerBackground" Color="#000" Opacity="1.0"/>
+                    <SolidColorBrush x:Key="ItemContainerForeground" Color="#FFF" />
+                    <SolidColorBrush x:Key="ItemContainerBoderBrush" Color="#000" />
+                    <SolidColorBrush x:Key="ItemContainerMouseOverBackground" Color="#333" />
+                    <SolidColorBrush x:Key="ItemContainerBorderMouseOverBackground" Color="#666" />
+                    <SolidColorBrush x:Key="ItemContainerMouseOverForeground" Color="Teal" />
+                    <SolidColorBrush x:Key="ItemContainerSelectedBackground" Color="Blue"/>
+                    <SolidColorBrush x:Key="ItemContainerSelectedForeground" Color="White"/>
+
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="0 0 5 5"/>
+                    </Style>
+                </ListBox.Resources>
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <Border
+                                    x:Name="Bd"
+                                    MinHeight="{TemplateBinding MinHeight}"
+                                    MaxHeight="{TemplateBinding MaxHeight}"
+                                    Margin="3"
+                                    Padding="{TemplateBinding Padding}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="0" 
+                                    SnapsToDevicePixels="true">
+                                        <ContentPresenter
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="BorderBrush" Value="{StaticResource ItemContainerBoderBrush}" />
+                        <Setter Property="BorderThickness" Value="0.9" />
+                        <Setter Property="MinHeight" Value="30" />
+                        <Setter Property="Background" Value="{StaticResource ItemContainerBackground}" />
+                        <Setter Property="Foreground" Value="{StaticResource ItemContainerForeground}" />
+                        <Setter Property="Padding" Value="5,0,0,0" />
+                        <Setter Property="LayoutTransform">
+                            <Setter.Value>
+                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="{StaticResource ItemContainerSelectedBackground}" />
+                                <Setter Property="Foreground" Value="{StaticResource ItemContainerSelectedForeground}" />
+                                <Setter Property="FontSize" Value="48" />
+                                <Setter Property="FontWeight" Value="Bold" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource ItemContainerMouseOverBackground}" />
+                                <Setter Property="Foreground" Value="{StaticResource ItemContainerMouseOverForeground}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+                <!--<ListBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image x:Name = "image" Margin="5" Height="50"  Source="C:\Users\kconsing\Documents\Visual Studio 2015\Projects\testingapplication\FallFoolishnessDrafter\bin\Debug\image1.png" />
+                    <TextBlock Text="Simon"></TextBlock>
+                </StackPanel>
+            </ListBoxItem>-->
+                <!--<ListBoxItem>JIGGY</ListBoxItem>
+            <ListBoxItem>JM</ListBoxItem>
+            <ListBoxItem>DEAN</ListBoxItem>-->
+            </ListBox>
+        </DockPanel>
+    </Grid>
+</Window>
+
