@@ -1,0 +1,14 @@
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\bin\Debug\fall-foolishness-drafter.exe.config
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\obj\Debug\fall-foolishness-drafter.csprojResolveAssemblyReference.cache
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\obj\Debug\App.g.cs
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\obj\Debug\fall-foolishness-drafter_MarkupCompile.cache
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\obj\Debug\MainWindow.g.cs
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\obj\Debug\fall-foolishness-drafter_MarkupCompile.lref
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\bin\Debug\fall-foolishness-drafter.exe
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\bin\Debug\fall-foolishness-drafter.pdb
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\obj\Debug\MainWindow.baml
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\obj\Debug\fall-foolishness-drafter.g.resources
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\obj\Debug\fall_foolishness_drafter.Properties.Resources.resources
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\obj\Debug\fall-foolishness-drafter.csproj.GenerateResource.Cache
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\obj\Debug\fall-foolishness-drafter.exe
+c:\users\kconsing\documents\visual studio 2015\Projects\fall-foolishness-drafter\obj\Debug\fall-foolishness-drafter.pdb
