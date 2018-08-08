@@ -61,8 +61,7 @@ namespace fall_foolishness_drafter
                     tokens = line.Split('|');
                     player player = new player(tokens[0], tokens[1]);
 
-                    DraftPool.Items.Add(line);
-                    //DraftPool.Items.Add(player.lastName + ", " + player.firstName);
+                    DraftPool.Items.Add(player.lastName + ", " + player.firstName);
                 }
             }
             catch (Exception e)
@@ -82,6 +81,5 @@ namespace fall_foolishness_drafter
             firstName = firstname;
             lastName = lastname;
         }
-
     }
 }
