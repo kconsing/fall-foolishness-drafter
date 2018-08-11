@@ -61,11 +61,11 @@
             </Border>
 
             <TextBox DockPanel.Dock="Top"
-                     Margin="5 5 5 0"></TextBox>
+                     Margin="5 5 5 0" Opacity=".75" Background="Black" Foreground="White" FontWeight="Bold"></TextBox>
 
             <ListBox x:Name="DraftPool"
                      Grid.Column="1"
-                     Margin="5"
+                     Margin="5 0 5 5"
                      FontFamily="NCAA Illinois Fighting Illini"
                      FontSize="28"
                      BorderBrush="#FFABADB3"
