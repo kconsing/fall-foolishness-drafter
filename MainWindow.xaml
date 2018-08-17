@@ -23,14 +23,75 @@
             <ImageBrush ImageSource="{Binding BackgroundPath}" Stretch="UniformToFill"/>
         </Grid.Background>
 
+        <Grid Grid.Column="0">
 
-        <ListBox x:Name="Roster" Margin="5" Grid.Column="0" Background="Black" Opacity=".75">
-            <ListBox.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </ListBox.Resources>
-        </ListBox>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+
+            <!--<ListBox x:Name="Roster" Margin="5" Grid.Row="0" Background="Black" Opacity=".75">
+                <ListBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </ListBox.Resources>
+            </ListBox>-->
+            <Border DockPanel.Dock="Top" Grid.Row="1" Margin="5 5 5 0" Opacity=".8">
+                <Border BorderThickness="1" BorderBrush="Black"   CornerRadius="20" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding PicturePath}"  Stretch="UniformToFill"></ImageBrush>
+                    </Border.Background>
+
+                    <TextBlock x:Name="PictureText2"
+                        Text="{Binding ElementName=DraftPool, Path=SelectedItem.fullName}"
+                        Foreground ="Black"
+                        FontFamily="NCAA Illinois Fighting Illini"
+                        FontSize="36"
+                        Padding="10"
+                        />
+                </Border>
+            </Border>
+
+
+            <Border BorderThickness="1" BorderBrush="Black" Opacity=".75" Margin="5" DockPanel.Dock="Top" Grid.Row="0" CornerRadius="5" Background="Black">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock  x:Name="tbTime"                        
+                                    Foreground ="Blue"
+                                    FontFamily="NCAA Illinois Fighting Illini"
+                                    FontSize="128"
+                                    Padding="1 0" />
+                        <StackPanel Grid.Column="1" Background="Transparent" Margin="20">
+                            <RadioButton x:Name="radioTeam1" GroupName="Select" Foreground="White" Content="Dean" IsChecked="True"/>
+                            <RadioButton x:Name="radioTeam2" GroupName="Select" Foreground="White" Content="Jiggy" />
+                            <RadioButton x:Name="radioTeam3" GroupName="Select" Foreground="White" Content="Simon" />
+                            <RadioButton x:Name="radioTeam4" GroupName="Select" Foreground="White" Content="Sohail" />
+                        </StackPanel>
+                    </Grid>
+
+                    <Button x:Name="btnSelect"
+                            Content="DRAFT"
+                            Foreground="White"
+                            BorderBrush="Transparent"
+                            FontFamily="NCAA Illinois Fighting Illini"
+                            FontSize="36"
+                            Background="Transparent" Grid.RowSpan="2" VerticalAlignment="Bottom" Click="btnSelect_Click"/>
+                </Grid>
+            </Border>
+
+
+        </Grid>
+
 
 
         <DockPanel   Grid.Column="1">
@@ -44,7 +105,7 @@
 
             </Image>-->
 
-            <Border DockPanel.Dock="Top" Height="300" Margin="5 5 5 0" Opacity=".95">
+            <!--<Border DockPanel.Dock="Top" Height="300" Margin="5 5 5 0" Opacity=".95">
                 <Border BorderThickness="0.9" BorderBrush="#000"   CornerRadius="5 5 0 0" >
                     <Border.Background>
                         <ImageBrush ImageSource="{Binding PicturePath}"  Stretch="UniformToFill"></ImageBrush>
@@ -58,7 +119,38 @@
                         Padding="10"
                         />
                 </Border>
-            </Border>
+            </Border>-->
+            <Grid Height="300" DockPanel.Dock="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.Resources>
+                    <Style TargetType="ListBox">
+                        <Setter Property="FontFamily" Value="NCAA Illinois Fighting Illini" />
+                        <Setter Property="FontSize" Value="18" />
+                    </Style>
+                </Grid.Resources>
+
+                <ListBox x:Name="Team1" Grid.Column="0" Background="Black" Foreground="White" Opacity=".75" Margin="5">
+
+                </ListBox>
+
+                <ListBox x:Name="Team2" Grid.Column="1" Background="Black" Opacity=".75" Foreground="White" Margin="5">
+
+                </ListBox>
+
+                <ListBox x:Name="Team3" Grid.Column="2" Background="Black" Opacity=".75" Foreground="White" Margin="5">
+
+                </ListBox>
+
+                <ListBox x:Name="Team4" Grid.Column="3" Background="Black" Opacity=".75" Foreground="White" Margin="5">
+
+                </ListBox>
+            </Grid>
 
             <TextBox DockPanel.Dock="Top"
                      Margin="5 5 5 0" Opacity=".75" Background="Black" Foreground="White" FontWeight="Bold"></TextBox>
@@ -71,7 +163,7 @@
                      BorderBrush="#FFABADB3"
                      Background="Black" Opacity="0.75"
                      DockPanel.Dock="Bottom"
-                     
+                     ItemsSource="{Binding players}"
                      >
                 <ListBox.Resources>
                     <SolidColorBrush x:Key="ItemContainerBackground" Color="#000" Opacity="1.0"/>
@@ -137,6 +229,15 @@
                         </Style.Triggers>
                     </Style>
                 </ListBox.ItemContainerStyle>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding firstName}" Padding="5 2"></TextBlock>
+                            <TextBlock Text="{Binding lastName}" Padding="5 2"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
 
                 <!--<ListBoxItem>
                 <StackPanel Orientation="Horizontal">

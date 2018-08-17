@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Collections.ObjectModel;
+using fall_foolishness_drafter.Models;
+using System.Windows.Threading;
 
 namespace fall_foolishness_drafter
 {
@@ -21,13 +24,29 @@ namespace fall_foolishness_drafter
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> players;
-
+        public ObservableCollection<player> players { get; set; }
+        public string picturepath = Environment.CurrentDirectory + @"\pic1.jpg";
+        DispatcherTimer _timer;
+        TimeSpan _time;
         public MainWindow()
         {
             InitializeComponent();
+
+            _time = TimeSpan.FromSeconds(90);
+
+            _timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                tbTime.Text = _time.ToString(@"mm\:ss");
+                if (_time == TimeSpan.Zero) _timer.Stop();
+                _time = _time.Add(TimeSpan.FromSeconds(-1));
+            }, Application.Current.Dispatcher);
+
             this.DataContext = this;
+            players = new ObservableCollection<player>();
             LoadDraftBoard();
+            players = new ObservableCollection<player>(players.OrderBy(p => p.firstName));
+
+            DraftPool.GetBindingExpression(ListBox.ItemsSourceProperty).UpdateTarget();
         }
 
         public string BackgroundPath
@@ -42,7 +61,7 @@ namespace fall_foolishness_drafter
         {
             get
             {
-                return Environment.CurrentDirectory + @"\pic1.jpg";
+                return picturepath;
             }
         }
 
@@ -52,16 +71,13 @@ namespace fall_foolishness_drafter
             {
                 string[] lines;
                 string[] tokens;
-                players = new List<string>();
 
                 lines = File.ReadAllLines(Environment.CurrentDirectory + @"\players.txt");
 
                 foreach (string line in lines)
                 {
                     tokens = line.Split('|');
-                    player player = new player(tokens[0], tokens[1]);
-
-                    DraftPool.Items.Add(player.lastName + ", " + player.firstName);
+                    players.Add(new player { firstName = tokens[0], lastName = tokens[1] , fullName=tokens[0] + " " + tokens[1]}); //resvisit I shouldnt have to set the full name like that >:(
                 }
             }
             catch (Exception e)
@@ -69,17 +85,38 @@ namespace fall_foolishness_drafter
                 MessageBox.Show(e.Message);
             }
         }
-    }
 
-    public class player
-    {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-
-        public player(string firstname = "fist", string lastname = "last")
+        private void btnSelect_Click(object sender, RoutedEventArgs e)
         {
-            firstName = firstname;
-            lastName = lastname;
+            if(DraftPool.SelectedItem == null)
+            {
+                MessageBox.Show("Select a player to draft.");
+            }
+            else
+            {
+                if (radioTeam1.IsChecked == true)
+                {
+                    Team1.Items.Add(DraftPool.SelectedItem.ToString());
+                }
+                if (radioTeam2.IsChecked == true)
+                {
+                    Team2.Items.Add(DraftPool.SelectedItem.ToString());
+                }
+                if (radioTeam3.IsChecked == true)
+                {
+                    Team3.Items.Add(DraftPool.SelectedItem.ToString());
+                }
+                if (radioTeam4.IsChecked == true)
+                {
+                    Team4.Items.Add(DraftPool.SelectedItem.ToString());
+                }
+
+                players.Remove((player)DraftPool.SelectedItem);
+
+                _time = TimeSpan.FromSeconds(90);
+
+                _timer.Start();
+            }
         }
     }
 }

@@ -1,34 +1,80 @@
-Karl|Consing
-Anthony|Glass
-Felipe|Liao
-Dean|Lauvina
-Paul|Regacho
-Jason|Manix
-Eddie|Arizona
-Andrew|Sandiego
-JM|Canlas
-Sohail|Mohammed
-Thinh|Nguyen
-Joseph|Ravara
-Simon|Lee
-Jiggy|Sim
-Azim|Fikri
-Edward|Raya
-Troy|Maltizo
-Stephen|Piller
-Aaron|Asiddao
-Adrian|Aquino
-Francisco|Verdin
-JayJay|Monenegro
-James|David
-Tim|Urgena
-Tommy|Tran
-Drew|Possa
-Migo|Malvar
-Bryan|Del Prado
-Abdulla|Albasery
-Andrew|Lucero
-Andre|Colorina
-AJ|Alerre
-Phil|Vergeire
-Moses|Kim
+Karl|Consing - 5-jig
+Anthony|Glass 2-Dean
+Felipe|Liao 13-jig
+Dean|Lauvina -Captain
+Paul|Regacho 31-dean
+Jason|Manix 29-jig
+Eddie|Arizona 22-soh
+Andrew|Sandiego 28-jig
+JM|Canlas 20-jig
+Sohail|Mohammed -Captain
+Thinh|Nguyen 32-simon
+Joseph|Ravara 14-soh
+Simon|Lee -Captain
+Jiggy|Sim -Captain
+Azim|Fikri 17-simon
+Edward|Raya 16-sim6
+Troy|Maltizo 23-dean
+Stephen|Piller 4-jig
+Aaron|Asiddao 10-dean
+Adrian|Aquino 15-dean
+Francisco|Verdin 7-dean
+JayJay|Monenegro 1-simon
+Kirk|Rehal 6-soh
+James|David 34-sohail
+Tim|Urgena 25 simon
+Tommy|Tran 9 - simon
+Drew|Possa 8-simon
+Migo|Malvar 12-jig
+Bryan|Del Prado 3-soh
+Abdulla|Albasery 33-simon
+Andrew|Lucero 19-soh
+Andre|Colorina 30-sohail
+AJ|Alerre 24-simon
+Phil|Vergeire 11-soh
+EJ|Santiago 21-jig
+Jan|Dimaano 18-dean
+Ruben|Cabre 27-dean
+Lawrence|Aquino 26-sohail
+
+simon
+thinh
+azim
+edward
+jayjay
+tim
+tommy
+abdulla
+aj
+drew
+
+Dean
+Tony
+Paul
+troy
+aaron
+adrian
+francisco
+jan
+ruben
+
+jiggy
+karl
+felipe
+sandrew
+jm
+stephen
+migo
+ej
+jason
+
+sohail
+joe
+kirk
+james
+bdp
+lucy
+andre
+phil
+lawrence
+
